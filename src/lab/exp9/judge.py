@@ -165,6 +165,8 @@ def index(req):
 					result = "Segmentation Fault"
 				elif(status=="Time limit exceeded"):
 					result = "Time Limit Exceeded";
+				elif(status == "Wrong Answer"):
+					result = "Wrong answer"
 				else:
 					result = "Run Time Error";
 				JudgeData_html+="<td> "+result+" </td>"
@@ -183,12 +185,12 @@ def index(req):
 			compileErrors = compileErrors.split('\n');
 			for i in compileErrors:
 				x = i.find(":");
-				CompileError+=i[x-1:]+"<br/>"
+				CompileError = CompileError + i[x-1:]+"<br/>"
 		else:
 			if(action=="Compile"):
 				result = """<center> <p style="color:green">"""+result+""" </p> </center>"""
 			if(action=="Run"):
-				Results_Tests_Cases=JudgeData_html;
+				Results_Tests_Cases = JudgeData_html;
 				result = """<center> <p style="color:red">"""+result+""" </p> </center>"""
 			
 	else:
